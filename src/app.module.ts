@@ -6,9 +6,10 @@ import { OwnerModule } from './owner/owner.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Owner } from './owner/entities/owner.entity';
 import { Pet } from './pet/entities/pet.entity';
+import { ApolloDriverConfig, ApolloDriver } from '@nestjs/apollo';
 import { GraphQLModule } from '@nestjs/graphql';
-import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { join } from 'path';
+import { DataSource } from 'typeorm';
 
 @Module({
   imports: [
@@ -29,4 +30,6 @@ import { join } from 'path';
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule {
+  constructor(private dataSource: DataSource) {}
+}
