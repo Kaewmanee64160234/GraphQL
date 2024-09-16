@@ -3,6 +3,6 @@ import { PetService } from './pet.service';
 import { PetResolver } from './pet.resolver';
 
 @Module({
-  providers: [PetResolver, PetService]
+  providers: [PetResolver, PetService],
 })
 export class PetModule {}
